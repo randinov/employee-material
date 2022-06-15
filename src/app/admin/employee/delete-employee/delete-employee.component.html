@@ -1,0 +1,11 @@
+<mat-dialog-content>
+  <div fxLayout="column" fxLayoutAlign="space-around center" >
+      <img src="../../../../assets/images/question.svg" alt="" width="300px" />
+      <h2 class="text-center" cdkFocusInitial>Hapus Data</h2>
+      <p class="text-center">Apakah anda yakin ingin menghapus data ini ?</p>
+      <div style="text-align:center">
+          <button mat-button mat-dialog-close  class="hidden-sm">BATAL</button>
+          <button mat-raised-button color="primary" (click)="doDelete()">YA</button>
+      </div>
+  </div>
+</mat-dialog-content>

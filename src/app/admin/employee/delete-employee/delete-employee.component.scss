@@ -1,0 +1,43 @@
+  
+  .dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .flex {
+    display: flex;
+  }
+  
+  .gap-4 {
+    gap: 1rem /* 16px */;
+  }
+  
+  .justify-start {
+    justify-content: flex-start;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .inline {
+    display: inline;
+  }.flex {
+  display: flex;
+}
+
+.gap-4 {
+  gap: 1rem /* 16px */;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.inline {
+  display: inline;
+}

@@ -1,0 +1,138 @@
+<div mat-dialog-title class="dialog-title"  *ngIf="!isConfirmation">
+  <h2>{{titleDialog}} Employee</h2>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon [icIcon]="icClose"></mat-icon>
+  </button>
+</div>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+<mat-dialog-content class="mat-typography">
+  <div fxLayout="column" fxLayoutAlign="space-around stretch" *ngIf="!isConfirmation">
+      <div class="card overflow-auto px-6 py-4">
+        <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="0">
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Username</mat-label>
+                <input formControlName="username" matInput placeholder="Masukan Nama" required>
+                <mat-error *ngIf="formGroup.controls.username.hasError('required')">Nama Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>First Name</mat-label>
+                <input formControlName="firstName" matInput placeholder="Masukan First Name" required>
+                <mat-error *ngIf="formGroup.controls.firstName.hasError('required')">First Name Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Last Name</mat-label>
+                <input formControlName="lastName" matInput placeholder="Masukkan Last Name" required>
+                <mat-error *ngIf="formGroup.controls.lastName.hasError('required')">Last Name Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender" placeholder="Select" required>
+                  <mat-option *ngFor="let item of listGender" [value]="item.gender">{{item.gender}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="formGroup.controls.gender.hasError('required')">Wajib Pilih Gender</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput placeholder="Masukkan Email" required>
+                <mat-error *ngIf="formGroup.controls.email.hasError('required')">Email Wajib Diisi</mat-error>         
+                <mat-error *ngIf="formGroup.controls.email.hasError('email')">Email must be a valid email address</mat-error>        
+              </mat-form-field>
+            </div>
+      
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Birth Day</mat-label>
+                <input matInput  formControlName="birthDate"
+                  [max]="maxDate" 
+                  [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="formGroup.controls.birthDate.hasError('required')">Choose Birth Day</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Basic Salary</mat-label>
+                <input formControlName="basicSalary" matInput placeholder="Masukkan Basic Salary"
+                type="number" (keypress)="numberOnly($event)"  required>
+                <mat-error *ngIf="formGroup.controls.basicSalary.hasError('required')">Basic Salary Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Status</mat-label>
+                <input formControlName="status" matInput placeholder="Masukkan Status" required>
+                <mat-error *ngIf="formGroup.controls.status.hasError('required')">Status Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Group</mat-label>
+                <input formControlName="group" matInput type="text" [matAutocomplete]="auto" />
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let item of filteredOptions" [value]="item">
+                    {{item}}
+                  </mat-option>
+                </mat-autocomplete>
+                <mat-error *ngIf="formGroup.controls.group.hasError('required')">Group Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div fxFlex="100">
+            <div class="sm:px-0 md:px-2 lg:px-2 xl:px-2" fxFlex="50">
+              <mat-form-field appearance="outline" class="inline">
+                <mat-label>Description</mat-label>
+                <input formControlName="description" matInput placeholder="Masukkan Description" required>
+                <mat-error *ngIf="formGroup.controls.description.hasError('required')">Description Wajib Diisi</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="isConfirmation">
+    <app-dialog-save></app-dialog-save>
+    <div fxLayout="row" class="mt-6" fxLayoutAlign="space-around center" fxLayoutGap="20px" style="text-align:center">
+        <button mat-button (click)="isConfirmation = false">BATAL</button>
+        <button mat-raised-button color="primary" (click)="doSubmit()" [disabled]="isLoading">SIMPAN</button>
+    </div>
+</div>
+
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" *ngIf="!isConfirmation">
+  <button mat-button mat-dialog-close>BATAL</button>
+  <button type="submit" mat-button color="primary">SIMPAN</button>
+</mat-dialog-actions>
+
+</form>

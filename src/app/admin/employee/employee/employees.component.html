@@ -1,0 +1,109 @@
+
+<section  class="mat-elevation-z8 bg-white">
+  <div fxFlex.gt-xs="40" class="mb10">
+    <div fxLayout="column" fxFlex="20" class="mt5">
+      <h2 class=" title" fxFlex="auto" style="padding:10px">Add Employee</h2>
+    </div>
+  </div>
+  <div fxFlex.gt-xs="40" class="mb5" >
+    <button mat-raised-button color="primary"  style="margin-left: 10px;" 
+    (click)="dialogTambah()"><mat-icon>control_point</mat-icon> Add Employee</button>
+
+    </div>
+
+
+
+  <mat-card fxFlex.gt-xs="40" class="mb15">
+ 
+    <p-table [value]="employee" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+    styleClass="p-datatable-md md-theme p-datatable-gridlines" #dt1 dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+    [loading]="loadingPage" [globalFilterFields]="['username','firstName','email']"
+    responsiveLayout="scroll">
+      <!-- Global Filter User Input-->
+
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <span class="p-input-icon-left p-ml-auto">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="dt1.filterGlobal(getEventValue($event), 'contains')" placeholder="Search keyword" />
+          </span>
+        </div>
+      </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>No.</th>
+        <th pSortableColumn="username">Username <p-sortIcon field="username">
+          </p-sortIcon>
+        </th>
+        <th pSortableColumn="firstName">First Name <p-sortIcon field="firstName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="lastName"> Last Name <p-sortIcon field="lastName"></p-sortIcon>
+        </th>
+        <th pSortableColumn="email">Email<p-sortIcon field="email"></p-sortIcon>
+        </th>
+        <th pSortableColumn="birthDate">Birth Date<p-sortIcon field="birthDate"></p-sortIcon>
+        </th>
+        <th pSortableColumn="basicSalary">Basic Salary <p-sortIcon field="basicSalary"></p-sortIcon>
+        </th>
+        <th pSortableColumn="status">Status<p-sortIcon field="status"></p-sortIcon>
+        </th>
+        <th pSortableColumn="group">Grouping<p-sortIcon field="group"></p-sortIcon>
+        </th>
+        <th pSortableColumn="description">Description<p-sortIcon field="description"></p-sortIcon>
+        </th>
+        <th>Aksi</th>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
+      <tr>
+        <td>
+          {{rowIndex + 1}}
+        </td>
+        <td>
+          {{data.username}}
+        </td>
+        <td>
+          {{data.firstName}}
+        </td>
+        <td>
+          {{data.lastName}}
+        </td>
+        <td>
+          {{data.email}}
+        </td>
+        <td>
+          {{data.birthDate | date:'mediumDate'}}
+        </td>
+        <td>
+          {{data.basicSalary | currency: "INA":"Rp. ":"1.0"}}
+        </td>
+        <td>
+          {{data.status}}
+        </td>
+        <td>
+          {{data.group}}
+        </td>
+        <td>
+          {{data.description}}
+        </td>
+        <td style="width: 3rem">
+            <button mat-raised-button mat-mini-fab color="accent"
+             style="color: white;margin-bottom: 10px;" (click)="editDialog(data.id)">
+              <mat-icon>edit</mat-icon></button>
+
+              <button mat-raised-button  mat-mini-fab color="warn" (click)="dialogDelete(data.id)">
+              <mat-icon>delete</mat-icon></button>
+  
+        </td>
+      
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="10" class="text-center">Data Not found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  </mat-card>
+</section>
