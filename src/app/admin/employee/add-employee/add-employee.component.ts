@@ -135,7 +135,7 @@ export class AddEmployeesComponent implements OnInit {
       description: this.f.description.value ? this.f.description.value : '',
       basicSalary: this.f.basicSalary.value ? this.f.basicSalary.value : '',
       status: this.f.status.value ? this.f.status.value : '',
-      gender: this.f.gender.value.gender ? this.f.gender.value.gender : '',
+      gender: this.f.gender.value ? this.f.gender.value : '',
       birthDate: this.f.birthDate.value ? this.f.birthDate.value : ''
     }
 

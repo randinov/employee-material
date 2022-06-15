@@ -58,7 +58,7 @@
       "complete_address": "7397 Ibrahim Vista Suite 669\nDibbertstad, CT 97473",
       "lastName": "",
       "birthDate": "",
-      "basicSalary":0 ,
+      "basicSalary": 0,
       "status": "",
       "group": "",
       "description": ""
@@ -242,7 +242,6 @@
       "designation": "PHP Developer",
       "phone_number": "1-352-268-1071",
       "complete_address": "77688 Watsica Common\nLake Rod, OK 29949",
-
       "lastName": "",
       "birthDate": "",
       "basicSalary": 0,
@@ -1579,19 +1578,6 @@
       "description": ""
     },
     {
-      "id": 101,
-      "username": "",
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "group": "",
-      "description": "",
-      "basicSalary": "",
-      "status": "",
-      "birthDate": ""
-      
-    },
-    {
       "id": 102,
       "username": "Randi Novranda",
       "firstName": "Randi",
@@ -1601,7 +1587,8 @@
       "description": "test",
       "basicSalary": 9000000,
       "status": "Bekerja",
-      "birthDate": "1993-11-02T17:00:00.000Z"
+      "birthDate": "1993-11-02T17:00:00.000Z",
+      "gender": ""
     },
     {
       "id": 103,
@@ -1615,6 +1602,19 @@
       "status": "Menikah",
       "gender": "Female",
       "birthDate": "1996-02-20T17:00:00.000Z"
+    },
+    {
+      "id": 104,
+      "username": "Nana",
+      "firstName": "Nana",
+      "lastName": "Mobile Legends",
+      "email": "nana@gmail.com",
+      "group": "Marvels",
+      "description": "test",
+      "basicSalary": 5000000,
+      "status": "Lajang",
+      "gender": "Female",
+      "birthDate": "2004-05-31T17:00:00.000Z"
     }
   ],
   "groupinglist": [
