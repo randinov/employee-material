@@ -27,14 +27,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 RANDI NOVRANDA 
-untuk login aplikasi masukan username & password
-1.username:test.mandiri
-2.password:P@ssw0rd
-
-
 aplikasi ini memakai beberapa module seperti 
 1.Prime ng (npm i primeng) 
 2.untuk icon memakai iconify (nmp i @visurel/iconify-angular)
 3.untuk data dummy menggunakan json-server (npm install -g json-server)
 untuk menjalankan json server hanya perlu ketik 
 npm start diterminal
+4.setelah clone project npm install terlebih dahulu
